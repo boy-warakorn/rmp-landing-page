@@ -141,7 +141,7 @@ const RegisterPage = () => {
         style={{ height: "calc(100vh - 96px)" }}
       >
         <div
-          className="col-span-1 rounded-lg flex-col py-24 hidden md:block"
+          className="col-span-1 rounded-lg flex-col py-24 px-4 hidden md:flex"
           style={{ background: "#3a49f9" }}
         >
           <HeadingText1 className="uppercase text-white text-center">
