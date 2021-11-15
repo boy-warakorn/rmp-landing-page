@@ -14,15 +14,22 @@ const StyledButton = styled(Button)`
 
 interface CustomButtonProps {
   className?: string;
+  onClick(): void;
 }
 
 const CustomButton = ({
   children,
   className,
+  onClick,
 }: PropsWithChildren<CustomButtonProps>) => {
   return (
     <div>
-      <StyledButton size="large" type="primary" className={className}>
+      <StyledButton
+        size="large"
+        type="primary"
+        className={className}
+        onClick={onClick}
+      >
         {children}
       </StyledButton>
     </div>
