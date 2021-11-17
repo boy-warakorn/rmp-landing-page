@@ -36,7 +36,7 @@ const RegisterPage = () => {
       >
         <Input />
       </Form.Item>
-      <Form.Item
+      {/* <Form.Item
         label="Common Charge Ratio"
         name="commonChargeRatio"
         rules={[
@@ -59,7 +59,7 @@ const RegisterPage = () => {
         ]}
       >
         <InputNumber style={{ width: "100%" }} />
-      </Form.Item>
+      </Form.Item> */}
       <Form.Item
         className="col-span-2"
         label="Address"
@@ -95,32 +95,18 @@ const RegisterPage = () => {
       <Form.Item
         label="Citizen Number"
         name="citizenNumber"
-        rules={[
-          {
-            required: true,
-            message: "Please input your citizen number!",
-          },
-        ]}
+        rules={[{ pattern: RegExp("^[0-9]{13}$") }]}
       >
         <InputNumber style={{ width: "100%" }} />
       </Form.Item>
       <Form.Item
         label="Phone Number"
         name="phoneNumber"
-        rules={[
-          {
-            required: true,
-            message: "Please input your phone number!",
-          },
-        ]}
+        rules={[{ pattern: RegExp("^[0][0-9]{9}$") }]}
       >
         <Input />
       </Form.Item>
-      <Form.Item
-        label="Email"
-        name="email"
-        rules={[{ required: true, message: "Please input your email!" }]}
-      >
+      <Form.Item label="Email" name="email" rules={[{ type: "email" }]}>
         <Input />
       </Form.Item>
       <Form.Item
@@ -146,8 +132,8 @@ const RegisterPage = () => {
 
       const preparedData = {
         name: firstFormValue?.businessName,
-        commonChargeRatio: firstFormValue?.commonChargeRatio,
-        baseCommonCharge: firstFormValue?.baseCommonCharge,
+        commonChargeRatio: "123",
+        baseCommonCharge: "1000",
         address: firstFormValue?.address,
         firstname: formValue?.firstname,
         lastname: formValue?.lastname,
