@@ -10,8 +10,10 @@ import { BackTop, Image } from "antd";
 import React, { Fragment } from "react";
 import { AimOutlined, EyeOutlined, HomeOutlined } from "@ant-design/icons";
 import ScrollAnimation from "react-animate-on-scroll";
+import { useHistory } from "react-router";
 
 const HomePage = () => {
+  const history = useHistory();
   return (
     <Fragment>
       <div
@@ -29,7 +31,10 @@ const HomePage = () => {
             euismod convallis commodo, ultrices nulla. Non facilisis semper
             molestie tortor.
           </HeadingText3>
-          <CustomButton className="mt-12 px-10" onClick={() => {}}>
+          <CustomButton
+            className="mt-12 px-10"
+            onClick={() => history.push("/register")}
+          >
             <HeadingText4>Register</HeadingText4>
           </CustomButton>
         </div>

@@ -9,12 +9,18 @@ import React, { Fragment, useState } from "react";
 import { LeftCircleOutlined } from "@ant-design/icons";
 import { useHistory } from "react-router";
 import CustomButton from "@components/global/Button";
+import { useForm } from "antd/lib/form/Form";
+import { AxiosService } from "@services/axios.config";
+import Loading from "react-loading";
 
 const { Step } = Steps;
 
 const RegisterPage = () => {
   const [currentStep, setCurrentStep] = useState(0);
+  const [loading, setLoading] = useState(false);
+  const [firstFormValue, setFirstFormValue] = useState({} as any);
   const history = useHistory();
+  const form = useForm();
 
   const renderFirstStep = () => (
     <Fragment>
@@ -127,6 +133,42 @@ const RegisterPage = () => {
     </Fragment>
   );
 
+  const onSubmit = async () => {
+    await form[0].validateFields();
+    if (currentStep === 0) {
+      setFirstFormValue(form[0].getFieldsValue());
+      setCurrentStep(1);
+    } else {
+      console.log(form[0].getFieldsValue());
+      console.log(firstFormValue);
+
+      const formValue = form[0].getFieldsValue();
+
+      const preparedData = {
+        name: firstFormValue?.businessName,
+        commonChargeRatio: firstFormValue?.commonChargeRatio,
+        baseCommonCharge: firstFormValue?.baseCommonCharge,
+        address: firstFormValue?.address,
+        firstname: formValue?.firstname,
+        lastname: formValue?.lastname,
+        citizenNumber: formValue?.citizenNumber,
+        phoneNumber: formValue?.phoneNumber,
+        email: formValue?.email,
+        password: formValue?.password,
+      };
+
+      try {
+        setLoading(true);
+        await AxiosService.post("/business", preparedData);
+        history.replace("/");
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setLoading(false);
+      }
+    }
+  };
+
   return (
     <Fragment>
       <div
@@ -155,6 +197,7 @@ const RegisterPage = () => {
             <Step title="Personal Info." />
           </Steps>
           <Form
+            form={form[0]}
             className="mt-12 flex flex-col justify-between"
             style={{ height: "100%" }}
             layout="vertical"
@@ -177,18 +220,19 @@ const RegisterPage = () => {
                 </CustomButton>
               )}
               <CustomButton
-                className={`px-20 mb-14 ${
+                className={`flex justify-center items-center px-20 mb-14 ${
                   currentStep === 1 ? "bg-green-500" : ""
                 }`}
-                onClick={() => {
-                  if (currentStep === 0) {
-                    setCurrentStep(1);
-                  }
-                }}
+                onClick={onSubmit}
               >
                 <HeadingText4>
-                  {" "}
-                  {currentStep === 0 ? "Next" : "Finish"}
+                  {loading ? (
+                    <Loading />
+                  ) : currentStep === 0 ? (
+                    "Next"
+                  ) : (
+                    "Finish"
+                  )}
                 </HeadingText4>
               </CustomButton>
             </div>
