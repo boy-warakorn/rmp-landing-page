@@ -95,18 +95,22 @@ const RegisterPage = () => {
       <Form.Item
         label="Citizen Number"
         name="citizenNumber"
-        rules={[{ pattern: RegExp("^[0-9]{13}$") }]}
+        rules={[{ pattern: RegExp("^[0-9]{13}$"), required: true }]}
       >
         <InputNumber style={{ width: "100%" }} />
       </Form.Item>
       <Form.Item
         label="Phone Number"
         name="phoneNumber"
-        rules={[{ pattern: RegExp("^[0][0-9]{9}$") }]}
+        rules={[{ pattern: RegExp("^[0][0-9]{9}$"), required: true }]}
       >
         <Input />
       </Form.Item>
-      <Form.Item label="Email" name="email" rules={[{ type: "email" }]}>
+      <Form.Item
+        label="Email"
+        name="email"
+        rules={[{ type: "email", required: true }]}
+      >
         <Input />
       </Form.Item>
       <Form.Item
