@@ -3,7 +3,7 @@ import {
   HeadingText3,
   HeadingText4,
 } from "@components/typography/Typography";
-import { Button, Result } from "antd";
+import { Button } from "antd";
 import React from "react";
 import { useHistory } from "react-router";
 import SuccessImage from "../assets/images/success.jpg";

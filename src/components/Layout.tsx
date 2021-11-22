@@ -52,10 +52,11 @@ const Layout = () => {
                 </a>
               </HeadingText4>
             </SidebarButton>
-            <CustomButton className="ml-10 px-10" onClick={() => {}}>
-              <HeadingText4 onClick={() => history.push("/register")}>
-                Register your business
-              </HeadingText4>
+            <CustomButton
+              className="ml-10 px-10"
+              onClick={() => history.push("/register")}
+            >
+              <HeadingText4>Register your business</HeadingText4>
             </CustomButton>
           </div>
         </div>

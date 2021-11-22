@@ -1,8 +1,4 @@
-import {
-  HeadingText1,
-  HeadingText2,
-  HeadingText4,
-} from "@components/typography/Typography";
+import { HeadingText2, HeadingText4 } from "@components/typography/Typography";
 import { Steps, Form, Input, InputNumber } from "antd";
 import ImageBell from "../assets/images/image.png";
 import React, { Fragment, useState } from "react";
