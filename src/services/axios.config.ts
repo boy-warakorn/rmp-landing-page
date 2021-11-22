@@ -2,6 +2,7 @@ import axios from "axios";
 
 export const AxiosService = axios.create({
   baseURL: "https://rmp.ryuhub.dev/api",
+  // baseURL: "http://localhost:1234/api",
 });
 
 AxiosService.interceptors.request.use(

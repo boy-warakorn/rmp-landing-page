@@ -3,8 +3,8 @@ import {
   HeadingText2,
   HeadingText4,
 } from "@components/typography/Typography";
-import { Image, Steps, Form, Input, InputNumber } from "antd";
-import ShakeHandImage from "../assets/images/shake_hand.png";
+import { Steps, Form, Input, InputNumber } from "antd";
+import ImageBell from "../assets/images/image.png";
 import React, { Fragment, useState } from "react";
 import { LeftCircleOutlined } from "@ant-design/icons";
 import { useHistory } from "react-router";
@@ -34,7 +34,7 @@ const RegisterPage = () => {
           },
         ]}
       >
-        <Input />
+        <Input placeholder="Enter your business name" />
       </Form.Item>
       {/* <Form.Item
         label="Common Charge Ratio"
@@ -71,7 +71,7 @@ const RegisterPage = () => {
           },
         ]}
       >
-        <Input.TextArea rows={4} />
+        <Input.TextArea placeholder="Enter your address" rows={4} />
       </Form.Item>
     </Fragment>
   );
@@ -83,42 +83,57 @@ const RegisterPage = () => {
         name="firstname"
         rules={[{ required: true, message: "Please input your firstname!" }]}
       >
-        <Input />
+        <Input placeholder="Enter your firstname" />
       </Form.Item>
       <Form.Item
         label="Lastname"
         name="lastname"
         rules={[{ required: true, message: "Please input your lastname!" }]}
       >
-        <Input />
+        <Input placeholder="Enter your lastname" />
       </Form.Item>
       <Form.Item
         label="Citizen Number"
         name="citizenNumber"
-        rules={[{ pattern: RegExp("^[0-9]{13}$"), required: true }]}
+        rules={[
+          {
+            pattern: RegExp("^[0-9]{13}$"),
+            required: true,
+            message: "Please enter correct citizen number",
+          },
+        ]}
       >
-        <InputNumber style={{ width: "100%" }} />
+        <InputNumber
+          placeholder="Enter your citizen number"
+          style={{ width: "100%" }}
+        />
       </Form.Item>
       <Form.Item
         label="Phone Number"
         name="phoneNumber"
-        rules={[{ pattern: RegExp("^[0][0-9]{9}$"), required: true }]}
+        rules={[
+          {
+            pattern: RegExp("^[0][0-9]{9}$"),
+            required: true,
+            message: "Please enter correct phone number",
+          },
+        ]}
       >
-        <Input />
+        <Input placeholder="Enter your phone number" />
       </Form.Item>
       <Form.Item
         label="Email"
         name="email"
         rules={[{ type: "email", required: true }]}
       >
-        <Input />
+        <Input placeholder="Enter your email" />
       </Form.Item>
       <Form.Item
         label="Password"
         name="password"
         rules={[{ required: true, message: "Please input your password!" }]}
       >
-        <Input.Password />
+        <Input.Password placeholder="Enter your password" />
       </Form.Item>
     </Fragment>
   );
@@ -150,7 +165,7 @@ const RegisterPage = () => {
       try {
         setLoading(true);
         await AxiosService.post("/business", preparedData);
-        history.replace("/");
+        history.replace("/success");
       } catch (error) {
         console.log(error);
       } finally {
@@ -161,26 +176,32 @@ const RegisterPage = () => {
 
   return (
     <Fragment>
-      <div
-        className="py-8 px-24 flex items-center cursor-pointer"
-        onClick={() => history.goBack()}
-      >
-        <LeftCircleOutlined style={{ fontSize: "24px" }} />
-        <HeadingText2 className="ml-4">Back</HeadingText2>
+      <div className="py-8 px-24">
+        <div
+          className="flex items-center cursor-pointer w-min"
+          onClick={() => history.goBack()}
+        >
+          <LeftCircleOutlined style={{ fontSize: "24px" }} />
+          <HeadingText2 className="ml-4">Back</HeadingText2>
+        </div>
       </div>
       <div
         className="grid grid-cols-3 p-0 2xl:py-8 2xl:px-24"
         style={{ height: "calc(100vh - 96px)" }}
       >
-        <div
-          className="col-span-1 rounded-lg flex-col py-24 px-4 hidden md:flex"
-          style={{ background: "#3a49f9" }}
-        >
-          <HeadingText1 className="uppercase text-white text-center">
-            Start your business
-          </HeadingText1>
-          <Image src={ShakeHandImage} preview={false} />
-        </div>
+        <img
+          src={ImageBell}
+          alt="background"
+          style={{
+            height: "85vh",
+            objectFit: "cover",
+            position: "absolute",
+            top: "10vh",
+            zIndex: -5,
+            left: "3.5vw",
+          }}
+        />
+        <div className="col-span-1 rounded-lg flex-col py-24 px-4 hidden md:flex"></div>
         <div className="p-20 col-span-3 md:col-span-2">
           <Steps current={currentStep}>
             <Step title="Business Info." />

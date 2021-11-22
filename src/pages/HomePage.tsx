@@ -5,8 +5,8 @@ import {
   HeadingText4,
   SubHeadingText1,
 } from "@components/typography/Typography";
-import LandingImage from "../assets/images/landing-img.png";
-import { BackTop, Image } from "antd";
+import LandingImage from "../assets/images/landing-image.png";
+import { BackTop } from "antd";
 import React, { Fragment } from "react";
 import { AimOutlined, EyeOutlined, HomeOutlined } from "@ant-design/icons";
 import ScrollAnimation from "react-animate-on-scroll";
@@ -17,10 +17,10 @@ const HomePage = () => {
   return (
     <Fragment>
       <div
-        className="p-56 grid grid-cols-2 content-center"
+        className="p-10 xl:p-56 grid grid-cols-1 content-center relative overflow-hidden"
         style={{ height: "90vh" }}
       >
-        <div>
+        <div style={{ width: "40vw" }}>
           <HeadingText1 className="leading-normal">
             Start your business with
             <br /> Resident Management System!
@@ -38,18 +38,24 @@ const HomePage = () => {
             <HeadingText4>Register</HeadingText4>
           </CustomButton>
         </div>
-        <div
+        {/* <div
           className="flex items-center justify-center"
           style={{ marginTop: "-7.5vh" }}
-        >
-          <Image
-            src={LandingImage}
-            preview={false}
-            style={{ height: "50vh" }}
-          />
-        </div>
+        ></div> */}
       </div>
 
+      <img
+        src={LandingImage}
+        alt="background"
+        style={{
+          height: "85vh",
+          objectFit: "cover",
+          position: "absolute",
+          top: "10vh",
+          zIndex: -5,
+          right: 0,
+        }}
+      />
       <div
         style={{
           height: "100vh",
