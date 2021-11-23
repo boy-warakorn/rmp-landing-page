@@ -5,7 +5,7 @@ import {
   HeadingText4,
   SubHeadingText1,
 } from "@components/typography/Typography";
-import LandingImage from "../assets/images/landing-image.png";
+import LandingImage from "../assets/images/mac-landing.jpg";
 import { BackTop } from "antd";
 import React, { Fragment } from "react";
 import { AimOutlined, EyeOutlined, HomeOutlined } from "@ant-design/icons";
@@ -20,7 +20,7 @@ const HomePage = () => {
         className="p-10 xl:p-56 grid grid-cols-1 content-center relative overflow-hidden"
         style={{ height: "90vh" }}
       >
-        <div style={{ width: "40vw" }}>
+        <div style={{ width: "40vw" }} className="w-full lg:w-2/4">
           <HeadingText1 className="leading-normal">
             Start your business with
             <br /> Resident Management System!
@@ -45,15 +45,16 @@ const HomePage = () => {
       </div>
 
       <img
+        className="hidden lg:inline-block"
         src={LandingImage}
         alt="background"
         style={{
-          height: "85vh",
+          height: "50vh",
           objectFit: "cover",
           position: "absolute",
-          top: "10vh",
           zIndex: -5,
-          right: 0,
+          right: "2.5vw",
+          bottom: "21.5vh",
         }}
       />
       <div
