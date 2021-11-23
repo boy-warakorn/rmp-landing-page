@@ -6,9 +6,11 @@ import {
   SubHeadingText1,
 } from "@components/typography/Typography";
 import LandingImage from "../assets/images/mac-landing.jpg";
+import MobileObjective from "../assets/images/mobile-objective.png";
+import MobileVision from "../assets/images/mobile-vision.png";
 import { BackTop } from "antd";
 import React, { Fragment } from "react";
-import { AimOutlined, EyeOutlined, HomeOutlined } from "@ant-design/icons";
+import { CheckCircleOutlined, EyeOutlined } from "@ant-design/icons";
 import ScrollAnimation from "react-animate-on-scroll";
 import { useHistory } from "react-router";
 
@@ -62,25 +64,47 @@ const HomePage = () => {
           height: "100vh",
           background: "#3a49f9",
           scrollSnapAlign: "start",
-          clipPath: "polygon(0 0, 100% 0, 100% 75vh, 0 100%)",
+          clipPath: "polygon(0 0, 100% 0, 100% 100vh, 0 75%)",
         }}
         id="objective"
       >
-        <ScrollAnimation
-          animateIn="fadeIn"
-          offset={500}
-          className="flex flex-col justify-center items-center h-full"
-        >
-          <AimOutlined style={{ fontSize: "100px", color: "#fff" }} />
-          <HeadingText1 className="text-white mt-12">
-            Our objective
-          </HeadingText1>
-          <HeadingText4 className="mt-8 w-1/3 text-center text-white">
-            Lorem ipsum sit amet, consectetur adipiscing elit. Purus urna ac
-            cras interdum urna facilisis eget nam. Purus nisi in id morbi
-            volutpat. Lorem turpis urna id semper.
-          </HeadingText4>
-        </ScrollAnimation>
+        <div className="flex justify-center items-center h-full px-64">
+          <ScrollAnimation animateIn="fadeInLeft" className="lg:ml-12 mt-20">
+            <img
+              className="hidden lg:inline-block transform -rotate-12"
+              src={MobileObjective}
+              alt="background"
+              style={{
+                width: "35vw",
+                objectFit: "cover",
+                zIndex: 5,
+              }}
+            />
+          </ScrollAnimation>
+          <ScrollAnimation
+            animateIn="fadeIn"
+            className="flex flex-col justify-center text-center"
+          >
+            <CheckCircleOutlined
+              style={{ fontSize: "72px" }}
+              className="text-white inline-block lg:hidden mb-4"
+            />
+            <div className="flex items-center justify-center lg:justify-end">
+              <CheckCircleOutlined
+                style={{ fontSize: "56px" }}
+                className="text-white mr-0 lg:mr-4 hidden lg:inline-block"
+              />
+              <HeadingText1 className="text-white">Easy to manage</HeadingText1>
+            </div>
+            <div className="flex justify-center lg:justify-end">
+              <HeadingText4 className="mt-8 text-white w-2/3 lg:text-right">
+                Lorem ipsum sit amet, consectetur adipiscing elit. Purus urna ac
+                cras interdum urna facilisis eget nam. Purus nisi in id morbi
+                volutpat. Lorem turpis urna id semper.
+              </HeadingText4>
+            </div>
+          </ScrollAnimation>
+        </div>
       </div>
       <div
         style={{
@@ -109,25 +133,47 @@ const HomePage = () => {
           height: "100vh",
           marginTop: "-25vh",
           background: "#3a49f9",
-          scrollSnapAlign: "start",
-          clipPath: "polygon(0 25vh, 100% 0, 100% 125vh, 0 100%)",
+          clipPath: "polygon(0 0, 100% 25vh, 100% 125vh, 0 100%)",
         }}
         id="about"
         className="flex flex-col justify-center items-center"
       >
-        <ScrollAnimation
-          animateIn="fadeIn"
-          offset={500}
-          className="flex flex-col justify-center items-center h-full"
-        >
-          <HomeOutlined style={{ fontSize: "100px", color: "#fff" }} />
-          <HeadingText1 className="text-white mt-12">About us</HeadingText1>
-          <HeadingText4 className="mt-8 w-1/3 text-center text-white">
-            Lorem ipsum sit amet, consectetur adipiscing elit. Purus urna ac
-            cras interdum urna facilisis eget nam. Purus nisi in id morbi
-            volutpat. Lorem turpis urna id semper.
-          </HeadingText4>
-        </ScrollAnimation>
+        <div className="flex flex-col justify-center items-center h-full">
+          <div className="flex justify-center items-center h-full px-64">
+            <ScrollAnimation animateIn="fadeIn" className="flex flex-col">
+              <CheckCircleOutlined
+                style={{ fontSize: "72px" }}
+                className="text-white inline-block lg:hidden mb-4"
+              />
+              <div className="flex items-center justify-center lg:justify-start">
+                <CheckCircleOutlined
+                  style={{ fontSize: "56px" }}
+                  className="text-white mr-4 hidden lg:inline-block"
+                />
+                <HeadingText1 className="text-white">100% Free</HeadingText1>
+              </div>
+              <div className="flex justify-center lg:justify-start">
+                <HeadingText4 className="mt-8 text-white w-2/3 text-center lg:text-left">
+                  Lorem ipsum sit amet, consectetur adipiscing elit. Purus urna
+                  ac cras interdum urna facilisis eget nam. Purus nisi in id
+                  morbi volutpat. Lorem turpis urna id semper.
+                </HeadingText4>
+              </div>
+            </ScrollAnimation>
+            <ScrollAnimation animateIn="fadeInRight" className="relative">
+              <img
+                className="hidden lg:inline-block transform rotate-12"
+                src={MobileVision}
+                alt="backgroundObject"
+                style={{
+                  width: "30vw",
+                  objectFit: "cover",
+                  zIndex: 5,
+                }}
+              />
+            </ScrollAnimation>
+          </div>
+        </div>
       </div>
       <div
         style={{
