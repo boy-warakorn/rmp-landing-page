@@ -182,8 +182,10 @@ const RegisterPage = () => {
         </div>
       </div>
       <div
-        className="grid grid-cols-3 p-0 2xl:py-8 2xl:px-24"
-        style={{ height: "calc(100vh - 96px)" }}
+        className="grid grid-cols-3 py-8 px-24"
+        style={{
+          height: "calc(100vh - 96px)",
+        }}
       >
         <img
           src={ImageBell}
@@ -198,7 +200,14 @@ const RegisterPage = () => {
           }}
         />
         <div className="col-span-1 rounded-lg flex-col py-24 px-4 hidden md:flex"></div>
-        <div className="p-20 col-span-3 md:col-span-2">
+        <div
+          className="p-20 col-span-3 md:col-span-2"
+          style={{
+            backgroundColor: "white",
+            boxShadow:
+              "rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset",
+          }}
+        >
           <Steps current={currentStep}>
             <Step title="Business Info." />
             <Step title="Personal Info." />
