@@ -75,7 +75,7 @@ const HomePage = () => {
               src={MobileObjective}
               alt="background"
               style={{
-                width: "35vw",
+                width: "80%",
                 objectFit: "cover",
                 zIndex: 5,
               }}
@@ -166,7 +166,7 @@ const HomePage = () => {
                 src={MobileVision}
                 alt="backgroundObject"
                 style={{
-                  width: "30vw",
+                  width: "70%",
                   objectFit: "cover",
                   zIndex: 5,
                 }}
