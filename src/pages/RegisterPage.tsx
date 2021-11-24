@@ -8,6 +8,7 @@ import CustomButton from "@components/global/Button";
 import { useForm } from "antd/lib/form/Form";
 import { AxiosService } from "@services/axios.config";
 import Loading from "react-loading";
+import ScrollAnimation from "react-animate-on-scroll";
 
 const { Step } = Steps;
 
@@ -172,87 +173,97 @@ const RegisterPage = () => {
 
   return (
     <Fragment>
-      <div className="py-8 px-24">
-        <div
-          className="flex items-center cursor-pointer w-min"
-          onClick={() => history.goBack()}
-        >
-          <LeftCircleOutlined style={{ fontSize: "24px" }} />
-          <HeadingText2 className="ml-4">Back</HeadingText2>
-        </div>
-      </div>
-      <div
-        className="grid grid-cols-3 py-8 px-24"
-        style={{
-          height: "calc(100vh - 96px)",
-        }}
-      >
-        <img
-          src={ImageBell}
-          alt="background"
-          style={{
-            height: "85vh",
-            objectFit: "cover",
-            position: "absolute",
-            top: "10vh",
-            zIndex: -5,
-            left: "3.5vw",
-          }}
-        />
-        <div className="col-span-1 rounded-lg flex-col py-24 px-4 hidden md:flex"></div>
-        <div
-          className="p-20 col-span-3 md:col-span-2"
-          style={{
-            backgroundColor: "white",
-            boxShadow:
-              "rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset",
-          }}
-        >
-          <Steps current={currentStep}>
-            <Step title="Business Info." />
-            <Step title="Personal Info." />
-          </Steps>
-          <Form
-            form={form[0]}
-            className="mt-12 flex flex-col justify-between"
-            style={{ height: "100%" }}
-            layout="vertical"
-            autoComplete="off"
+      <div>
+        <div className="py-8 px-24">
+          <div
+            className="flex items-center cursor-pointer w-min"
+            onClick={() => history.goBack()}
           >
-            <div className="grid grid-cols-2 gap-x-6">
-              {currentStep === 0 ? renderFirstStep() : renderSecondStep()}
-            </div>
-            <div
-              className={`flex ${
-                currentStep === 0 ? "justify-end" : "justify-between"
-              } `}
+            <LeftCircleOutlined style={{ fontSize: "24px" }} />
+            <HeadingText2 className="ml-4">Back</HeadingText2>
+          </div>
+        </div>
+        <div
+          className="grid grid-cols-3 py-8 px-24"
+          style={{
+            height: "calc(100vh - 96px)",
+          }}
+        >
+          <div className="col-span-1"></div>
+          <ScrollAnimation
+            animateIn="fadeIn"
+            style={{
+              position: "absolute",
+              top: "10vh",
+              zIndex: -5,
+              left: "3.5vw",
+            }}
+          >
+            <img
+              src={ImageBell}
+              alt="background"
+              style={{
+                height: "85vh",
+                objectFit: "cover",
+              }}
+            />
+          </ScrollAnimation>
+
+          <ScrollAnimation
+            animateIn="fadeInRight"
+            className="p-20 col-span-3 md:col-span-2"
+            style={{
+              backgroundColor: "white",
+              boxShadow:
+                "rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset",
+            }}
+          >
+            <Steps current={currentStep}>
+              <Step title="Business Info." />
+              <Step title="Personal Info." />
+            </Steps>
+            <Form
+              form={form[0]}
+              className="mt-12 flex flex-col justify-between"
+              style={{ height: "100%" }}
+              layout="vertical"
+              autoComplete="off"
             >
-              {currentStep === 1 && (
-                <CustomButton
-                  className={`px-20 mb-14`}
-                  onClick={() => setCurrentStep(0)}
-                >
-                  <HeadingText4>Back</HeadingText4>
-                </CustomButton>
-              )}
-              <CustomButton
-                className={`flex justify-center items-center px-20 mb-14 ${
-                  currentStep === 1 ? "bg-green-500" : ""
-                }`}
-                onClick={onSubmit}
+              <div className="grid grid-cols-2 gap-x-6">
+                {currentStep === 0 ? renderFirstStep() : renderSecondStep()}
+              </div>
+              <div
+                className={`flex ${
+                  currentStep === 0 ? "justify-end" : "justify-between"
+                } `}
               >
-                <HeadingText4>
-                  {loading ? (
-                    <Loading />
-                  ) : currentStep === 0 ? (
-                    "Next"
-                  ) : (
-                    "Finish"
-                  )}
-                </HeadingText4>
-              </CustomButton>
-            </div>
-          </Form>
+                {currentStep === 1 && (
+                  <CustomButton
+                    className={`px-20 mb-14`}
+                    onClick={() => setCurrentStep(0)}
+                  >
+                    <HeadingText4>Back</HeadingText4>
+                  </CustomButton>
+                )}
+                <CustomButton
+                  className={`flex justify-center items-center px-20 mb-14 ${
+                    currentStep === 1 ? "bg-green-500" : ""
+                  }`}
+                  onClick={onSubmit}
+                >
+                  <HeadingText4>
+                    {loading ? (
+                      <Loading />
+                    ) : currentStep === 0 ? (
+                      "Next"
+                    ) : (
+                      "Finish"
+                    )}
+                  </HeadingText4>
+                </CustomButton>
+              </div>
+            </Form>
+          </ScrollAnimation>
         </div>
       </div>
     </Fragment>

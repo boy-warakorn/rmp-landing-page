@@ -22,7 +22,11 @@ const HomePage = () => {
         className="p-10 xl:p-36 2xl:p-56 grid grid-cols-1 content-center relative overflow-hidden"
         style={{ height: "90vh" }}
       >
-        <div className="w-full lg:w-2/4">
+        <ScrollAnimation
+          animateOnce
+          animateIn="fadeIn"
+          className="w-full lg:w-2/4"
+        >
           <HeadingText1 className="leading-normal">
             Start your business with
             <br /> Resident Management System!
@@ -39,20 +43,28 @@ const HomePage = () => {
           >
             <HeadingText4>Register</HeadingText4>
           </CustomButton>
-        </div>
-        <img
-          className="hidden lg:inline-block"
-          src={LandingImage}
-          alt="background"
+        </ScrollAnimation>
+        <ScrollAnimation
+          offset={-100}
+          animateOnce
+          animateIn="fadeInRight"
           style={{
-            width: "60vw",
-            objectFit: "cover",
             position: "absolute",
             zIndex: -5,
             right: "-17.5vw",
             bottom: "15.5vh",
           }}
-        />
+        >
+          <img
+            className="hidden lg:inline-block"
+            src={LandingImage}
+            alt="background"
+            style={{
+              width: "60vw",
+              objectFit: "cover",
+            }}
+          />
+        </ScrollAnimation>
       </div>
 
       <div
