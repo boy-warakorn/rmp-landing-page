@@ -25,7 +25,9 @@ const Layout = () => {
     <div>
       <div style={{ scrollSnapAlign: "start" }}>
         <div
-          className="px-8 navbar flex justify-between"
+          className={`px-8 navbar flex justify-between ${
+            window.location.pathname.includes("about") ? "shadow-md" : ""
+          }`}
           style={{ height: "10vh" }}
         >
           <div className="flex items-center">
