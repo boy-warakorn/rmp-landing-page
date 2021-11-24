@@ -150,7 +150,9 @@ const HomePage = () => {
                   style={{ fontSize: "56px" }}
                   className="text-white mr-4 hidden lg:inline-block"
                 />
-                <HeadingText1 className="text-white">100% Free</HeadingText1>
+                <HeadingText1 className="text-white">
+                  Easy to communicate.
+                </HeadingText1>
               </div>
               <div className="flex justify-center lg:justify-start">
                 <HeadingText4 className="mt-8 text-white w-2/3 text-center lg:text-left">
@@ -162,7 +164,7 @@ const HomePage = () => {
             </ScrollAnimation>
             <ScrollAnimation animateIn="fadeInRight" className="relative">
               <img
-                className="hidden lg:inline-block transform rotate-12"
+                className="hidden lg:inline-block transform rotate-12 xl:mt-20"
                 src={MobileVision}
                 alt="backgroundObject"
                 style={{

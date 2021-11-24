@@ -32,25 +32,10 @@ const Layout = () => {
           </div>
           <div className="btn-bar flex items-center">
             <SidebarButton>
-              <HeadingText4>
-                <a href="#objective" style={{ color: "black" }}>
-                  Our objective
-                </a>
-              </HeadingText4>
+              <HeadingText4>RMP.</HeadingText4>
             </SidebarButton>
             <SidebarButton>
-              <HeadingText4>
-                <a href="#vision" style={{ color: "black" }}>
-                  Our vision
-                </a>
-              </HeadingText4>
-            </SidebarButton>
-            <SidebarButton>
-              <HeadingText4>
-                <a href="#about" style={{ color: "black" }}>
-                  About us
-                </a>
-              </HeadingText4>
+              <HeadingText4>About us</HeadingText4>
             </SidebarButton>
             <CustomButton
               className="ml-10 px-10"
