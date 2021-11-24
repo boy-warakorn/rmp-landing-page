@@ -7,6 +7,7 @@ import Logo from "../assets/images/rmp_logo.png";
 import { HeadingText4 } from "./typography/Typography";
 import { Route, Switch, useHistory } from "react-router";
 import HomePage from "@pages/HomePage";
+import AboutPage from "@pages/AboutPage";
 
 const SidebarButton = styled.div`
   ${tw`ml-10 cursor-pointer `}
@@ -31,10 +32,24 @@ const Layout = () => {
             <Image src={Logo} preview={false} height="32px" />
           </div>
           <div className="btn-bar flex items-center">
-            <SidebarButton>
-              <HeadingText4>RMP.</HeadingText4>
+            <SidebarButton
+              onClick={() => history.push("/")}
+              className={
+                !window.location.pathname.includes("about")
+                  ? `border-b-2 border-black`
+                  : ""
+              }
+            >
+              <HeadingText4>Home</HeadingText4>
             </SidebarButton>
-            <SidebarButton>
+            <SidebarButton
+              onClick={() => history.push("/about")}
+              className={
+                window.location.pathname.includes("about")
+                  ? `border-b-2 border-black`
+                  : ""
+              }
+            >
               <HeadingText4>About us</HeadingText4>
             </SidebarButton>
             <CustomButton
@@ -48,6 +63,7 @@ const Layout = () => {
       </div>
       <Switch>
         <Route path="/" exact component={HomePage} />
+        <Route path="/about" exact component={AboutPage} />
       </Switch>
     </div>
   );
