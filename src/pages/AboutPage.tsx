@@ -30,7 +30,7 @@ const DEVELOPERS_TEAMS = [
     pos: "Mobile Developer",
     fUrl: "https://www.facebook.com/anawat.master",
     lUrl: "https://www.linkedin.com/in/anawat-paothong-a758b41b1/",
-    gUrl: "https://www.facebook.com/onnop.ohnnop",
+    gUrl: "https://github.com/AnawatPaotthong",
   },
   {
     img: Ohn,

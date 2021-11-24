@@ -25,17 +25,17 @@ const HomePage = () => {
         <ScrollAnimation
           animateOnce
           animateIn="fadeIn"
-          className="w-full lg:w-2/4"
+          className="w-full lg:w-3/5"
         >
           <HeadingText1 className="leading-normal">
             Start your business with
             <br /> Resident Management System!
           </HeadingText1>
           <HeadingText3 className="mt-4">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt
-            lacinia nulla tempus est mauris orci, viverra quis. Volutpat tempus
-            euismod convallis commodo, ultrices nulla. Non facilisis semper
-            molestie tortor.
+            With this system, you can easily manage residential resources in
+            both web application and mobile application. Not only just owner
+            like you but you also can add your team, your staff or even your
+            customer to use this system.
           </HeadingText3>
           <CustomButton
             className="mt-12 px-10"
@@ -83,7 +83,7 @@ const HomePage = () => {
               src={MobileObjective}
               alt="background"
               style={{
-                width: "80%",
+                width: "90%",
                 objectFit: "cover",
                 zIndex: 5,
               }}
@@ -106,9 +106,9 @@ const HomePage = () => {
             </div>
             <div className="flex justify-center lg:justify-end">
               <HeadingText4 className="mt-8 text-white w-2/3 lg:text-right">
-                Lorem ipsum sit amet, consectetur adipiscing elit. Purus urna ac
-                cras interdum urna facilisis eget nam. Purus nisi in id morbi
-                volutpat. Lorem turpis urna id semper.
+                Our system is designed for people that don't want to use any
+                management tool. With system will be no worries about how to use
+                it. You can simply manage on your own according to our features.
               </HeadingText4>
             </div>
           </ScrollAnimation>
@@ -130,9 +130,10 @@ const HomePage = () => {
           <EyeOutlined style={{ fontSize: "100px" }} />
           <HeadingText1 className="mt-12">Our vision</HeadingText1>
           <HeadingText4 className="mt-8 w-1/3 text-center">
-            Lorem ipsum sit amet, consectetur adipiscing elit. Purus urna ac
-            cras interdum urna facilisis eget nam. Purus nisi in id morbi
-            volutpat. Lorem turpis urna id semper.
+            We aimed to give a management system that is not required to learn
+            anything to use the system with providing a lot of functions to
+            manage resources. And we also aimed to give a better communication
+            with your team and residents.
           </HeadingText4>
         </ScrollAnimation>
       </div>
@@ -164,9 +165,9 @@ const HomePage = () => {
               </div>
               <div className="flex justify-center lg:justify-start">
                 <HeadingText4 className="mt-8 text-white w-2/3 text-center lg:text-left">
-                  Lorem ipsum sit amet, consectetur adipiscing elit. Purus urna
-                  ac cras interdum urna facilisis eget nam. Purus nisi in id
-                  morbi volutpat. Lorem turpis urna id semper.
+                  Not only you can communicate in your team easily but you also
+                  can communicate with your customers or residents as well. The
+                  system will provide you to make a communication more easier.
                 </HeadingText4>
               </div>
             </ScrollAnimation>
@@ -176,7 +177,7 @@ const HomePage = () => {
                 src={MobileVision}
                 alt="backgroundObject"
                 style={{
-                  width: "70%",
+                  width: "80%",
                   objectFit: "cover",
                   zIndex: 5,
                 }}
