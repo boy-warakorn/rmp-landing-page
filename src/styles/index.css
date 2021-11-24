@@ -57,6 +57,17 @@ body {
   animation: spin 2s linear infinite;
 }
 
+.outline-img {
+  transition: all 0.3s;
+  outline: 10px solid white;
+}
+
+.outline-img:hover {
+  outline-color: #3a49f9;
+  outline-offset: 10px;
+  transform: translateY(-15px) scale(1.05);
+}
+
 @keyframes spin {
   100% {
     -webkit-transform: rotate(360deg);
