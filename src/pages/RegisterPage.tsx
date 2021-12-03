@@ -1,5 +1,5 @@
 import { HeadingText2, HeadingText4 } from "@components/typography/Typography";
-import { Steps, Form, Input, InputNumber } from "antd";
+import { Steps, Form, Input, InputNumber, notification } from "antd";
 import ImageBell from "../assets/images/image.png";
 import React, { Fragment, useState } from "react";
 import { LeftCircleOutlined } from "@ant-design/icons";
@@ -164,7 +164,10 @@ const RegisterPage = () => {
         await AxiosService.post("/business", preparedData);
         history.replace("/success");
       } catch (error) {
-        console.log(error);
+        notification.error({
+          message: "Error",
+          description: "This business name or email already used in our system",
+        });
       } finally {
         setLoading(false);
       }
