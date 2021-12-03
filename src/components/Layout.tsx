@@ -25,7 +25,9 @@ const Layout = () => {
     <div>
       <div style={{ scrollSnapAlign: "start" }}>
         <div
-          className="px-8 navbar flex justify-between"
+          className={`px-8 navbar flex justify-between ${
+            window.location.pathname.includes("about") ? "shadow" : ""
+          }`}
           style={{ height: "10vh" }}
         >
           <div className="flex items-center">
@@ -53,7 +55,7 @@ const Layout = () => {
               <HeadingText4>About us</HeadingText4>
             </SidebarButton>
             <CustomButton
-              className="ml-10 px-10"
+              className="ml-10 px-10 transform hover:shadow-2xl hover:-translate-y-1"
               onClick={() => history.push("/register")}
             >
               <HeadingText4>Register your business</HeadingText4>

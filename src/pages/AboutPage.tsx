@@ -4,7 +4,6 @@ import {
   HeadingText4,
 } from "@components/typography/Typography";
 import React, { useEffect, useState } from "react";
-import ScrollAnimation from "react-animate-on-scroll";
 import {
   LinkedinOutlined,
   FacebookOutlined,
@@ -18,6 +17,8 @@ import LeftTower from "../assets/images/Tower-1.png";
 import RightTower from "../assets/images/tower-3.png";
 import BottomTower1 from "../assets/images/Tower-2.png";
 import BottomTower2 from "../assets/images/Tower-mini.png";
+import TopTower1 from "../assets/images/Tower-4.png";
+import TopTower2 from "../assets/images/Tower-5.png";
 
 const DEVELOPERS_TEAMS = [
   {
@@ -51,6 +52,7 @@ const ICON_STYLE = { fontSize: "24px" };
 const AboutPage = () => {
   const [leftTower, setLeftTower] = useState(false);
   const [rightTower, setRightTower] = useState(false);
+  const [topTower, setTopTower] = useState(false);
   const [content, setContent] = useState(false);
   useEffect(() => {
     setTimeout(() => {
@@ -58,10 +60,13 @@ const AboutPage = () => {
     }, 100);
     setTimeout(() => {
       setRightTower(true);
+    }, 200);
+    setTimeout(() => {
+      setTopTower(true);
     }, 300);
     setTimeout(() => {
       setContent(true);
-    }, 1200);
+    }, 1500);
   }, []);
 
   return (
@@ -71,6 +76,31 @@ const AboutPage = () => {
     >
       <img
         className="hidden lg:inline-block absolute"
+        src={TopTower1}
+        alt="background"
+        style={{
+          top: 0,
+          height: "90vh",
+          objectFit: "cover",
+          transform: topTower ? "translateY(0)" : "translateY(-600px)",
+          transition: "all 1.5s",
+        }}
+      />
+      <img
+        className="hidden lg:inline-block absolute"
+        src={TopTower2}
+        alt="background"
+        style={{
+          top: 0,
+          right: 0,
+          height: "90vh",
+          objectFit: "cover",
+          transform: topTower ? "translateY(0)" : "translateY(-600px)",
+          transition: "all 1.5s",
+        }}
+      />
+      <img
+        className="hidden lg:inline-block absolute"
         src={LeftTower}
         alt="background"
         style={{
@@ -78,7 +108,7 @@ const AboutPage = () => {
           height: "90vh",
           objectFit: "cover",
           transform: leftTower ? "translateX(0)" : "translateX(-600px)",
-          transition: "all 2s",
+          transition: "all 1.5s",
         }}
       />
       <img
@@ -87,10 +117,11 @@ const AboutPage = () => {
         alt="background"
         style={{
           bottom: 0,
+          right: "5vw",
           height: "90vh",
           objectFit: "cover",
           transform: rightTower ? "translateY(0)" : "translateY(600px)",
-          transition: "all 2s",
+          transition: "all 1.5s",
         }}
       />
       <img
@@ -103,7 +134,7 @@ const AboutPage = () => {
           height: "90vh",
           transform: leftTower ? "translateX(0)" : "translateX(600px)",
           objectFit: "cover",
-          transition: "all 2s",
+          transition: "all 1.5s",
         }}
       />
       <img
@@ -112,59 +143,61 @@ const AboutPage = () => {
         alt="background"
         style={{
           bottom: 0,
+          left: "15vw",
           height: "90vh",
           objectFit: "cover",
           transform: rightTower ? "translateY(0)" : "translateY(600px)",
-          transition: "all 2s",
+          transition: "all 1.5s",
         }}
       />
-      {content && (
-        <ScrollAnimation
-          className="h-full w-full shadow-2xl bg-gray-100 px-16 py-12 rounded-lg flex flex-col items-center overflow-y-scroll"
-          animateIn="fadeInUp"
-        >
-          <HeadingText2 className="text-center border-b-2 border-black w-max">
-            Our Team
-          </HeadingText2>
-          <div className=" w-full h-full mt-4 flex justify-between flex-col lg:flex-row">
-            {DEVELOPERS_TEAMS.map((dev) => (
-              <div className="flex flex-col items-center">
-                <div
-                  className="rounded-full mt-12 shadow-2xl outline-img"
-                  style={{
-                    height: "275px",
-                    width: "275px",
-                    background: `url('${dev.img}')`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                  }}
-                ></div>
-                <HeadingText3 className="mt-8">{dev.name}</HeadingText3>
-                <HeadingText4>- {dev.pos} -</HeadingText4>
-                <HeadingText4 className="mt-2 flex cursor-pointer">
-                  <a href={dev.lUrl} target="_blank" rel="noreferrer">
-                    <LinkedinOutlined
-                      className="mr-2"
-                      style={{ ...ICON_STYLE, color: "#3B5998" }}
-                    ></LinkedinOutlined>
-                  </a>
-                  <a href={dev.fUrl} target="_blank" rel="noreferrer">
-                    <FacebookOutlined
-                      style={{ ...ICON_STYLE, color: "#0E76A8" }}
-                    />
-                  </a>
-                  <a href={dev.gUrl} target="_blank" rel="noreferrer">
-                    <GithubOutlined
-                      className="ml-2"
-                      style={{ ...ICON_STYLE, color: "#171515" }}
-                    />
-                  </a>
-                </HeadingText4>
-              </div>
-            ))}
-          </div>
-        </ScrollAnimation>
-      )}
+      <div
+        className="h-full w-full shadow-2xl bg-gray-100 px-16 py-12 rounded-lg flex flex-col items-center overflow-y-scroll opacity-95"
+        style={{
+          transform: content ? "translateY(0)" : "translateY(100vh)",
+          transition: "all 2s",
+        }}
+      >
+        <HeadingText2 className="text-center border-b-2 border-black w-max">
+          Our Team
+        </HeadingText2>
+        <div className="w-full h-full flex justify-between flex-col lg:flex-row items-center px-4">
+          {DEVELOPERS_TEAMS.map((dev) => (
+            <div className="flex flex-col items-center">
+              <div
+                className="rounded-full mt-12 shadow-2xl outline-img"
+                style={{
+                  height: "275px",
+                  width: "275px",
+                  background: `url('${dev.img}')`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                }}
+              ></div>
+              <HeadingText3 className="mt-8">{dev.name}</HeadingText3>
+              <HeadingText4>- {dev.pos} -</HeadingText4>
+              <HeadingText4 className="mt-2 flex cursor-pointer">
+                <a href={dev.lUrl} target="_blank" rel="noreferrer">
+                  <LinkedinOutlined
+                    className="mr-2"
+                    style={{ ...ICON_STYLE, color: "#3B5998" }}
+                  ></LinkedinOutlined>
+                </a>
+                <a href={dev.fUrl} target="_blank" rel="noreferrer">
+                  <FacebookOutlined
+                    style={{ ...ICON_STYLE, color: "#0E76A8" }}
+                  />
+                </a>
+                <a href={dev.gUrl} target="_blank" rel="noreferrer">
+                  <GithubOutlined
+                    className="ml-2"
+                    style={{ ...ICON_STYLE, color: "#171515" }}
+                  />
+                </a>
+              </HeadingText4>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };

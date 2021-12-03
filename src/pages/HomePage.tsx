@@ -38,7 +38,7 @@ const HomePage = () => {
             customer to use this system.
           </HeadingText3>
           <CustomButton
-            className="mt-12 px-10"
+            className="mt-12 px-10 transform hover:shadow-2xl hover:-translate-y-1"
             onClick={() => history.push("/register")}
           >
             <HeadingText4>Register</HeadingText4>
@@ -79,13 +79,14 @@ const HomePage = () => {
         <div className="flex justify-center items-center h-full px-64">
           <ScrollAnimation animateIn="fadeInLeft" className="lg:ml-12 mt-20">
             <img
-              className="hidden lg:inline-block transform -rotate-12"
+              className="hidden lg:inline-block transform -rotate-12 hover:rotate-0"
               src={MobileObjective}
               alt="background"
               style={{
                 width: "90%",
                 objectFit: "cover",
                 zIndex: 5,
+                transition: "all .3s",
               }}
             />
           </ScrollAnimation>
@@ -173,10 +174,11 @@ const HomePage = () => {
             </ScrollAnimation>
             <ScrollAnimation animateIn="fadeInRight" className="relative">
               <img
-                className="hidden lg:inline-block transform rotate-12 xl:mt-20"
+                className="hidden lg:inline-block transform rotate-12 xl:mt-20 hover:rotate-0"
                 src={MobileVision}
                 alt="backgroundObject"
                 style={{
+                  transition: "all .3s",
                   width: "80%",
                   objectFit: "cover",
                   zIndex: 5,

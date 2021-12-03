@@ -85,6 +85,13 @@ body {
   }
 }
 
+@media (min-width: 1544px) {
+  .outline-img {
+    height: 350px !important;
+    width: 350px !important;
+  }
+}
+
 svg {
   vertical-align: baseline;
 }
