@@ -1,6 +1,6 @@
 # Residential Management System (RMP)
 
-This is a platform that created for manage content and overall system of condominium.
+This is a platform that created for promote platform and let user for register to our platform.
 
 ## Authors
 
@@ -18,7 +18,7 @@ As we using `netlify` to deploy our platform. Please fork this git and go to `ht
 
 #### Change API Path
 
-1. Go to `src/configs/api` and change value of `baseApiUrl` to IP Address of your `Google Cloud Server` that you deploy on.
+1. Go to `src/services/axios.config.ts` and change value of `baseURL` to IP Address of your `Google Cloud Server` that you deploy on.
 
 ### For Local
 
